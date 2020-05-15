@@ -2,7 +2,6 @@ package org.example;
 
 import org.example.pojo.FizzBuzzValue;
 
-import java.util.function.Function;
 import java.util.function.IntFunction;
 
 /**
