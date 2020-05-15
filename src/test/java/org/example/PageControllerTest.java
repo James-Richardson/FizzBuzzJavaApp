@@ -22,10 +22,10 @@ class PageControllerTest {
         List<FizzBuzzValue> values = page.getValues();
         assertNotNull(values);
         assertEquals(100, values.size());
-        assertEquals(1, values.get(0).getInteger());
+        assertEquals(1, values.get(0).getNumber());
         assertFalse(values.get(0).isFizz());
         assertFalse(values.get(0).isBuzz());
-        assertEquals(100, values.get(99).getInteger());
+        assertEquals(100, values.get(99).getNumber());
         assertFalse(values.get(99).isFizz());
         assertTrue(values.get(99).isBuzz());
     }
@@ -37,10 +37,10 @@ class PageControllerTest {
         List<FizzBuzzValue> values = page.getValues();
         assertNotNull(values);
         assertEquals(100, values.size());
-        assertEquals(101, values.get(0).getInteger());
+        assertEquals(101, values.get(0).getNumber());
         assertFalse(values.get(0).isFizz());
         assertFalse(values.get(0).isBuzz());
-        assertEquals(200, values.get(99).getInteger());
+        assertEquals(200, values.get(99).getNumber());
         assertFalse(values.get(99).isFizz());
         assertTrue(values.get(99).isBuzz());
     }
@@ -52,11 +52,26 @@ class PageControllerTest {
         List<FizzBuzzValue> values = page.getValues();
         assertNotNull(values);
         assertEquals(1000, values.size());
-        assertEquals(1001, values.get(0).getInteger());
+        assertEquals(1001, values.get(0).getNumber());
         assertFalse(values.get(0).isFizz());
         assertFalse(values.get(0).isBuzz());
-        assertEquals(2000, values.get(999).getInteger());
+        assertEquals(2000, values.get(999).getNumber());
         assertFalse(values.get(99).isFizz());
         assertTrue(values.get(99).isBuzz());
+    }
+
+    @Test
+    public void getPagePageNum9_999_999_999PageSize10ReturnsFizzBuzzValuesFor99_999_999_991To100_000_000_000() {
+        Page page = pageController.getPage(9_999_999_999L, 10);
+
+        List<FizzBuzzValue> values = page.getValues();
+        assertNotNull(values);
+        assertEquals(10, values.size());
+        assertEquals(99_999_999_991L, values.get(0).getNumber());
+        assertFalse(values.get(0).isFizz());
+        assertFalse(values.get(0).isBuzz());
+        assertEquals(100_000_000_000L, values.get(9).getNumber());
+        assertFalse(values.get(9).isFizz());
+        assertTrue(values.get(9).isBuzz());
     }
 }

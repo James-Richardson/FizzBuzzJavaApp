@@ -5,18 +5,18 @@ package org.example.pojo;
  */
 public class FizzBuzzValue {
 
-    private final int integer;
+    private final long number;
     private final boolean fizz;
     private final boolean buzz;
 
-    public FizzBuzzValue(int integer, boolean fizz, boolean buzz) {
-        this.integer = integer;
+    public FizzBuzzValue(long number, boolean fizz, boolean buzz) {
+        this.number = number;
         this.fizz = fizz;
         this.buzz = buzz;
     }
 
-    public int getInteger() {
-        return integer;
+    public long getNumber() {
+        return number;
     }
 
     public boolean isFizz() {
